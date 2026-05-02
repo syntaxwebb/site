@@ -901,8 +901,8 @@ section {
 
 .project-actions {
     display: flex;
-    gap: var(--spacing-sm);
-    flex-wrap: wrap;
+    justify-content: center; /* centraliza */
+    margin-top: var(--spacing-md);
 }
 
 @media (max-width: 992px) {
@@ -928,10 +928,14 @@ section {
         flex-direction: column;
     }
     
-    .project-actions .btn {
-        width: 100%;
-        text-align: center;
-    }
+.project-actions .btn-primary {
+    width: 100%;
+    max-width: 220px; /* controla o tamanho */
+    padding: 14px 28px;
+    font-size: 1.05rem;
+    font-weight: 600;
+    text-align: center;
+}
 }
 
 @media (max-width: 480px) {
@@ -985,4 +989,239 @@ section {
 
 .social-card.github:hover {
     border-color: #181717;
+}
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CARD */
+.project-card {
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+    width: 100%;
+}
+
+/* LINK */
+.project-link {
+    display: block;
+    position: relative;
+    text-decoration: none;
+}
+
+/* IMAGEM */
+.project-image {
+    height: 260px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+/* OVERLAY */
+.project-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+}
+
+/* CONTEÚDO */
+.project-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    z-index: 2;
+}
+
+.project-content h3 {
+    font-size: 1.2rem;
+    margin-bottom: 5px;
+}
+
+.project-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+.project-content,
+.project-content h3,
+.project-content p {
+    color: #fff !important;
+}
+
+/* HOVER */
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 123, 255, 0.3);
+    border: 2px solid #007bff;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+/* LAYOUT GERAL */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.portfolio-section {
+    padding: 60px 0;
+}
+.hero-link {
+    position: relative;
+    display: block;
+}
+
+/* overlay escuro tipo card */
+.hero-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.7), rgba(0,0,0,0.2));
+}
+
+/* texto em cima */
+.hero-overlay-title {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    font-size: 2rem;
+    font-weight: 700;
+    z-index: 2;
+}
+.hero-img {
+    transition: 0.4s;
+}
+
+.hero-link:hover .hero-img {
+    transform: scale(1.05);
+}
+.hero-link {
+    position: relative;
+    display: block;
+    border-radius: 12px; /* igual sua imagem */
+    overflow: hidden; /* 🔥 ISSO resolve */
+}
+
+.hero-img {
+    display: block;
+    width: 100%;
+    border-radius: 12px; /* opcional, pode até remover depois */
+}
+/* GRID */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* RESPONSIVO */
+@media (max-width: 992px) {
+    .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 600px) {
+    .projects-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* CARD */
+.project-card {
+    border-radius: 16px;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* LINK */
+.project-link {
+    display: block;
+    position: relative;
+}
+
+/* IMAGEM */
+.project-image {
+    height: 260px;
+}
+
+.project-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: 0.4s;
+}
+
+/* OVERLAY */
+.project-link::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 16px;
+    background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.2));
+}
+
+/* TEXTO */
+.project-content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    right: 20px;
+    color: #fff;
+    z-index: 2;
+}
+
+.project-content h3 {
+    margin-bottom: 5px;
+    font-size: 1.2rem;
+}
+
+.project-content p {
+    font-size: 0.9rem;
+    opacity: 0.9;
+}
+
+/* HOVER */
+.project-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+.featured-projects .container {
+    padding: 0 40px;
+}
+.featured-projects {
+    padding-bottom: 40px;
 }
